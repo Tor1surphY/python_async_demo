@@ -37,7 +37,7 @@ async def handle(request):
         return web.Response(text=str(result))
         
     elif op == 'deleteall':
-        result = await db_operation.do_delete_many()
+        result = await db_operation.do_delete_many(key)
         return web.Response(text=str(result + ' doc was deleted'))
 
 def http_server():

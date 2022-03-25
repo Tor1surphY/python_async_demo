@@ -34,11 +34,11 @@ class DbOperation:
             i += 1
         return i
 
-    async def do_delete_many(self):
+    async def do_delete_many(self, key):
         coll = self._db.test_collection
         before = await coll.count_documents({})
         print('%s documents before calling delete_many()' % before)
-        await self._db.test_collection.delete_many({'9': {'$gt': '0'}})
+        await self._db.test_collection.delete_many({str(key): {'$gt': '0'}})
         after = await coll.count_documents({})
         print('%s documents after calling delete_many()' % after)
         return after - before
