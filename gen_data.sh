@@ -11,10 +11,8 @@ op=$1
 size=$2
 
 if [ ${op} == 'write' ]; then
-    if [ ${size} -eq 1 ]; then
-        file=`cat ${size}`
-        cmd=${url}${op}/${size}/${file}
-    fi
+    file=`cat ${size}`
+    cmd=${url}${op}/${size}/${file}
 fi
 
 echo ${cmd} > ${op}_${size}

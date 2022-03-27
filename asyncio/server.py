@@ -1,4 +1,3 @@
-from cgitb import text
 import socket
 import asyncio
 from asyncio_demo import DbOperation
@@ -11,7 +10,7 @@ async def handle(request):
     key   = request.match_info.get('key', 'UnknownArgs')
     value = request.match_info.get('value', 'UnknownArgs')
     
-    print('cmd: op={}, key={}, value={}'.format(op, key, value))
+    # print('cmd: op={}, key={}, value={}'.format(op, key, value))
     
     if op == 'UnknownArgs':
         web.Response(text='invald op args')
@@ -38,7 +37,7 @@ async def handle(request):
         
     elif op == 'deleteall':
         result = await db_operation.do_delete_many(key)
-        return web.Response(text=str(result + ' doc was deleted'))
+        return web.Response(text=str(str(result) + ' doc was deleted'))
 
 def http_server():
     app = web.Application()
