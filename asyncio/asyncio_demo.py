@@ -27,10 +27,9 @@ class DbOperation:
         return document
 
     async def do_find_all(self):
-        cursor = self._db.test_database.find()
         i = 0
-        for document in await cursor.to_list(length=10000):
-            # print('result {}: {}'.format(i, document))
+        async for doc in self._db.test_database.find({}):
+            print('result {}: {}'.format(i, doc))
             i += 1
         return i
 

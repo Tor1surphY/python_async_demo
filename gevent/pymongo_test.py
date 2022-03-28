@@ -10,7 +10,7 @@ data = {'1': str(write_100.msg)}
 id = db.test_database.insert_one(data).inserted_id
 print(id)
 
-result = db.datas.find()
+result = db.test_database.find()
 for doc in result:
     print(doc)
     
