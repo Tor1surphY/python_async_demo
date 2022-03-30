@@ -29,7 +29,7 @@ class DbOperation:
     async def do_find_all(self):
         i = 0
         async for doc in self._db.test_database.find({}):
-            print('result {}: {}'.format(i, doc))
+            # print('result {}: {}'.format(i, doc))
             i += 1
         return i
 

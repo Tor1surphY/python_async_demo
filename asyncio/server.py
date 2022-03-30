@@ -4,6 +4,8 @@ from asyncio_demo import DbOperation
 from aiohttp import web
 import sys
 import conf
+import uvloop
+asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
 
 async def handle(request):
     op    = request.match_info.get('op', 'UnknownArgs')

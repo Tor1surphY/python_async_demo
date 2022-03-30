@@ -15,7 +15,8 @@ def db_operation(args_str):
     if args_list[0] == 'read':
         results = docs.find()
         # result_str = ''
-        # for result in results:
+        for result in results:
+            pass
         #     result_str += str(result) + '\n'
         # print(result_str)
         return str(results.count())
